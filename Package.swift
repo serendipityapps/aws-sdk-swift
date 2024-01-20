@@ -64,7 +64,7 @@ func addDependencies(clientRuntimeVersion: Version, crtVersion: Version) {
 }
 
 func addClientRuntimeDependency(_ version: Version) {
-    let smithySwiftURL = "https://github.com/smithy-lang/smithy-swift"
+    let smithySwiftURL = "https://github.com/serendipityapps/smithy-swift"
     let useLocalDeps = ProcessInfo.processInfo.environment["AWS_SWIFT_SDK_USE_LOCAL_DEPS"] != nil
     let useMainDeps = ProcessInfo.processInfo.environment["AWS_SWIFT_SDK_USE_MAIN_DEPS"] != nil
     switch (useLocalDeps, useMainDeps) {
@@ -80,7 +80,7 @@ func addClientRuntimeDependency(_ version: Version) {
         ]
     case (false, false):
         package.dependencies += [
-            .package(url: smithySwiftURL, exact: version)
+            .package(url: smithySwiftURL, branch: "main")
         ]
     }
 }
